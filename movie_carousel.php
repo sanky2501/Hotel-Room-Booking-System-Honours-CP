@@ -4,7 +4,8 @@
 ?>
 
      
-                  <center><h3 class="text-primary">Euros Cinema Hall</h3></center>
+                  <center><h3 class="text-primary">EUROS CINEMA HALL<br></h3></center>
+                  <center><h4 class="text-primary-mine">Now Showing<br></h4></center>
 
 <div id="movie-carousel-field">
 
