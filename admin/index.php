@@ -1,129 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Admin | Cinema Seat Reservation</title>
- 	
-
-<?php
-	session_start();
-  if(!isset($_SESSION['login_id']))
-    header('location:login.php');
- include('./header.php'); 
- // include('./auth.php'); 
- ?>
-
-</head>
-<style>
-	
-</style>
-
+<?php require_once "connect.php"?>
+<html lang = "en">
+	<head>
+		<title> Admin</title>
+		<meta charset = "utf-8" />
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.css " />
+		<link rel = "stylesheet" type = "text/css" href = "../css/style.css" />
+	</head>
 <body>
-	<?php include 'topbar.php' ?>
-	<?php include 'navbar.php' ?>
-  <div class="toast" id="alert_toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-body text-white">
-    </div>
-  </div>
-  <main id="view-panel" >
-      <?php $page = isset($_GET['page']) ? $_GET['page'] :'book'; ?>
-  	<?php include $page.'.php' ?>
-  	
-
-  </main>
-
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-<div class="modal fade" id="confirm_modal" role='dialog'>
-    <div class="modal-dialog modal-md" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title">Confirmation</h5>
-      </div>
-      <div class="modal-body">
-        <div id="delete_content"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id='confirm' onclick="">Continue</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="uni_modal" role='dialog'>
-    <div class="modal-dialog modal-md" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title"></h5>
-      </div>
-      <div class="modal-body">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-      </div>
-      </div>
-    </div>
-  </div>
+	<nav style = "background-color:rgba(0, 0, 0, 0.1);" class = "navbar navbar-default">
+		<div  class = "container-fluid">
+			<div class = "navbar-header">
+				<a class = "navbar-brand" > Admin</a>
+			</div>
+		</div>
+	</nav>
+	<div class = "container">
+		<br />
+		<br />
+		<div class = "col-md-4"></div>
+		<div class = "col-md-4">
+			<div class = "panel panel-danger">
+				<div class = "panel-heading">
+					<h4>Administrator</h4>
+				</div>
+				<div class = "panel-body">
+					<form method = "POST">
+						<div class = "form-group">
+							<label>Username</label>
+							<input type = "text" name = "username" class = "form-control" required = "required" />
+						</div>
+						<div class = "form-group">
+							<label>Password</label>
+							<input type = "password" name = "password" class = "form-control" required = "required" />
+						</div>
+						<br />
+						<div class = "form-group">
+							<button name = "login" class = "form-control btn btn-primary"><i class = "glyphicon glyphicon-log-in"> Login</i></button>
+						</div>
+					</form>
+					<?php require_once 'login.php'?>
+				</div>
+			</div>
+		</div>
+		<div class = "col-md-4"></div>
+	</div>	
+	<br />
+	<br />
+	<?php include 'admin_footer.html' ?>
 </body>
-<script>
-	 window.start_load = function(){
-    $('body').prepend('<di id="preloader2"></di>')
-  }
-  window.end_load = function(){
-    $('#preloader2').fadeOut('fast', function() {
-        $(this).remove();
-      })
-  }
-
-  window.uni_modal = function($title = '' , $url=''){
-    start_load()
-    $.ajax({
-        url:$url,
-        error:err=>{
-            console.log()
-            alert("An error occured")
-        },
-        success:function(resp){
-            if(resp){
-                $('#uni_modal .modal-title').html($title)
-                $('#uni_modal .modal-body').html(resp)
-                $('#uni_modal').modal('show')
-                end_load()
-            }
-        }
-    })
-}
-window._conf = function($msg='',$func='',$params = []){
-     $('#confirm_modal #confirm').attr('onclick',$func+"("+$params.join(',')+")")
-     $('#confirm_modal .modal-body').html($msg)
-     $('#confirm_modal').modal('show')
-  }
-   window.alert_toast= function($msg = 'TEST',$bg = 'success'){
-      $('#alert_toast').removeClass('bg-success')
-      $('#alert_toast').removeClass('bg-danger')
-      $('#alert_toast').removeClass('bg-info')
-      $('#alert_toast').removeClass('bg-warning')
-
-    if($bg == 'success')
-      $('#alert_toast').addClass('bg-success')
-    if($bg == 'danger')
-      $('#alert_toast').addClass('bg-danger')
-    if($bg == 'info')
-      $('#alert_toast').addClass('bg-info')
-    if($bg == 'warning')
-      $('#alert_toast').addClass('bg-warning')
-    $('#alert_toast .toast-body').html($msg)
-    $('#alert_toast').toast({delay:3000}).toast('show');
-  }
-  $(document).ready(function(){
-    $('#preloader').fadeOut('fast', function() {
-        $(this).remove();
-      })
-  })
-</script>	
+<script src = "../js/jquery.js"></script>
+<script src = "../js/bootstrap.js"></script>	
 </html>

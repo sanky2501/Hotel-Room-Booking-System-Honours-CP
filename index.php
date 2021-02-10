@@ -1,43 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Movie Theater | Seat Reservation</title>
-        <link src="admin/assets/font-awesome/css/all.js"/>
-        <script src="admin/assets/vendor/jquery/jquery.min.js"></script>
-        <script src="admin/assets/font-awesome/js/all.js"></script>
-       
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Now Showing</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.php?page=home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php?page=movies">Movies</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-       <?php
+<html lang = "en">
 
-       $page = isset($_GET['page']) ? $_GET['page'] : 'home';
-       include($page.'.php');
-       ?>
-        <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2021 -Booking System</div></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+	<body>   
+    <?php include 'menu.html'?>;
+	<div id="myCarousel" class="carousel slide container-fluid" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			<li data-target="#myCarousel" data-slide-to="4"></li>
+			<li data-target="#myCarousel" data-slide-to="5"></li>
+			<li data-target="#myCarousel" data-slide-to="6"></li>
+		</ol>
+		<div style = "margin: auto;" class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img class="center-block" src="images/a.jpg" style = "width:60%; height:550px;" />
+			</div>
+		
+			<div class="item">
+				<img class="center-block" src="images/b.jpg" style = "width:60%; height:550px;"  />
+			</div>
+		
+			<div class="item">
+				<img class="center-block" src="images/c.jpg" style = "width:60%; height:550px;" />
+			</div>
+		
+			<div class="item">
+				<img class="center-block" src="images/d.jpg" style = "width:60%; height:550px;" />
+			</div>
+			
+			<div class="item">
+				<img class="center-block" src="images/e.jpg" style = "width:60%; height:550px;" />
+			</div>
+			
+			<div class="item">
+				<img class="center-block" src="images/f.jpeg" style = "width:60%; height:550px;" />
+			</div>
+			
+			<div class="item">
+				<img class="center-block" src="images/g.png" style = "width:60%; height:550px;" />
+			</div>
+			
+			
+		</div>
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>	
+	</div>
+	<br />
+	<br />
+
+</body>
+<script src = "js/jquery.js"></script>
+<script src = "js/bootstrap.js"></script>	
 </html>
